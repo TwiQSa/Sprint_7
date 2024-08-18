@@ -1,7 +1,10 @@
+import allure
 import requests
 import pytest
+from test_data import *
 
 class TestOrderCreation:
+    @allure.title('Проверки, что: можно указать один из цветов — BLACK или GREY; можно указать оба цвета; можно совсем не указывать цвет; тело ответа содержит track.')
     @pytest.mark.parametrize("color", [
         (["BLACK"]),
         (["GREY"]),
@@ -21,7 +24,7 @@ class TestOrderCreation:
             "color": color
         }
 
-        re = requests.post("https://qa-scooter.praktikum-services.ru/api/v1/orders", json=order_data)
+        re = requests.post(ORDER_CREATION_AND_LIST_URL, json=order_data)
 
         assert re.status_code == 201
         assert "track" in re.json()
