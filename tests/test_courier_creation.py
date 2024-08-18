@@ -7,7 +7,7 @@ class TestCourierCreation:
     @allure.title('Проверки: 1.Курьера можно создать 2.Чтобы создать курьера, нужно передать в ручку все обязательные поля 3.запрос возвращает правильный код ответа 4.успешный запрос возвращает правильное тело')
     def test_create_courier(self):
         payload = {
-            "login": "Tester2049",
+            "login": "Tester2050",
             "password": "123456",
             "firstName": "Courierb2"
         }
@@ -32,7 +32,7 @@ class TestCourierCreation:
     @allure.title('Проверка, что нельзя создать двух одинаковых курьеров')
     def test_create_two_identical_couriers(self):
         payload = {
-            "login": "Tester583",
+            "login": "Tester584",
             "password": "123456",
             "firstName": "Courierb2"
         }
